@@ -19,7 +19,7 @@ For this project,a modified U-net was compiled to accomodate 3D image arrays and
 published work on volumetric segmentation[3]. Instead of using the Caffe framwork, this model is built and trained using Keras. Due to computational overhead,
 no batch normalization was used.
 
-![alt text](U-net.png "U-net")
+<p align ='center'><img src='U-net.png' width='50%' height='50%'></p>
 <p align ='center'><b>Fig 1.</b> 4-layer U-net for volumetric segmentation.(<i>source:https://lmb.informatik.uni-freiburg.de/Publications/2016/CABR16/</i>)</p>
 
 
