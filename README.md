@@ -25,7 +25,7 @@ no batch normalization was used.
 
 ### Data Processing
 
-There was total of 60 patient sample (20 from each site), and different MRI parameters were applied at different hospitals to generate multiple images for each patient. The images of interest are the pre-processed files that corrected for bias field, and only T1 and Flair images are used. In the data_process.py script, it imports the image files and subsequently reformats the data into numpy arrays. The input image to the U-net model is resized to 128x128x16x2 to save computation time; and training mask files are also converted to binary image. The mask files in the training dataset are annotated manually by radiology experts and used to train the model.
+There was total of 60 patient sample (20 from each site), and different MRI parameters were applied at different hospitals to generate multiple images for each patient. The images of interest are the pre-processed files that corrected for bias field, and only T1 and Flair images are used. In the data_process.py script, it imports the image files and subsequently reformats the data into numpy arrays. The input to the U-net model is resized to samples of 128x128x16x2 tensor; and training mask files are also converted to binary image. The mask files in the training dataset are annotated manually by radiology experts and used to train the model. The dataset was split into 75% training set and 25% validation set.
 
 
 
