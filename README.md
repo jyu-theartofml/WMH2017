@@ -1,6 +1,6 @@
 ## Segmentation of white matter intensities using modified 3D U-net.
 
-![alt text](mask%20overlay.png "Predicted mask contour")
+![alt text](images/mask%20overlay.png "Predicted mask contour")
 
 White Matter Hyperintensities (aka., leukoaraiosis) is often linked to high risk of stroke and dementia in older patients[1]. While image 
 segmentation is critical for diagnosis and evaluation of treatments, automated segmentation of medical images remains a challenging task. In 
@@ -19,7 +19,7 @@ For this project,a modified U-net was compiled to accomodate 3D image arrays and
 published work on volumetric segmentation[3]. Instead of using the Caffe framwork, this model is built and trained using Keras. Due to computational overhead,
 no batch normalization was used.
 
-<p align ='center'><img src='U-net.png' width='50%' height='50%'></p>
+<p align ='center'><img src='images/U-net.png' width='50%' height='50%'></p>
 <p align ='center'><b>Fig 1.</b> 4-layer U-net for volumetric segmentation.(<i>source:https://lmb.informatik.uni-freiburg.de/Publications/2016/CABR16/</i>)</p>
 
 
