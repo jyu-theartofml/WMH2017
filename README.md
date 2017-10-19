@@ -1,4 +1,4 @@
-## Segmentation of white matter intensities using modified 3D U-net.
+# Segmentation of white matter intensities using modified 3D U-net.
 
 ![alt text](images/mask%20overlay2.png "Predicted mask contour")
 
@@ -14,8 +14,7 @@ It's worth pointing out that while U-net looks very similar to SegNet (commonly 
 high dynamic range and high resolution.
 
 For this project,a modified U-net was compiled to accomodate 3D image arrays and computation cost, and this particular model is primarily based on Cicek et al.'s
-published work on volumetric segmentation[3]. Instead of using the Caffe framwork, this model is built and trained using Keras. Due to computational overhead,
-no batch normalization was used.
+published work on volumetric segmentation[3]. Instead of using the Caffe framwork, this model is built and trained using Keras. Due to large computational overhead,no batch normalization was used.
 
 <p align ='center'><img src='images/U-net.png' width='50%' height='50%'></p>
 <p align ='center'><b>Fig 1.</b> 4-layer U-net for volumetric segmentation.(<i>source:https://lmb.informatik.uni-freiburg.de/Publications/2016/CABR16/</i>)</p>
@@ -30,11 +29,14 @@ There was total of 60 patient sample (20 from each site), and different MRI para
 Using 2D kernels(3x3x1) in the model architecture and image augmentation significantly reduced overfitting. For a baseline model without augmentation, the Dice Coefficient for all validation image arrays was 73%. After data augmentation and training on 164 images,the total Dice Coefficient on validation set was 77%, with average of 70%±12% (validated on 54 un-augmented images). 
 
 
+
+I was interested in seeing how the trained model 'sees' the image input, so I pulled out the post-activation feature maps from the convolution layers. From left to right on the top of Fig 3, it shows the representations as the model encodes the features (hence more blurry at the end). As for the bottom row, the drastic color changes indicate that there's some major learning/weight updating going on as the model is trying to compile a good mask image.
+
 ![alt text](images/collage_down.png "activation maps of left side")
 
 ![alt text](images/collage_up.png "activation maps of right side")
 
-<p align ='center'><b>Fig 2.</b> Activation maps from convolution layers. The top row corresponds to the contractive path, and the bottom row corresponds to the expansive/synthesis path. 
+<p ><b>Fig 3.</b> Activation maps from convolution layers. The top row corresponds to the contractive path, and the bottom row corresponds to the expansive/synthesis path. Few of the pictures were generated from low-intensity pixel distribution, so only one color is visble due to the collage displayed on global scale. </p>
 
 
 
