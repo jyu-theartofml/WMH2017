@@ -30,7 +30,7 @@ Using 2D kernels(3x3x1) in the model architecture and image augmentation signifi
 
 
 
-I was curious to see how the trained model 'sees' the image input, so I pulled out the post-activation feature maps from the convolution layers. From left to right on the top of Fig 3, it shows the representations as the model encodes the features (hence more blurry at the end). As for the bottom row, the drastic color changes indicate that there's some major learning/weight updating going on as the model is trying to compile a good mask image.
+I was curious to see how the trained model 'sees' the image input, so I pulled out the post-activation feature maps from the convolution layers. From left to right on the top of Fig 3, it shows the representations as the model encodes and compresses the features (hence more blurry at the end). As for the bottom row, the drastic color changes indicate that there's some major learning/weight updating going on as the model is trying to compile a good mask image.
 
 ![alt text](images/collage_down.png "activation maps of left side")
 
