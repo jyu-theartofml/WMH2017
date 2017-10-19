@@ -1,4 +1,3 @@
-# Segmentation of white matter
 
 ![alt text](images/overlay2.png "Predicted mask contour")
 
