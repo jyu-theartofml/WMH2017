@@ -14,7 +14,7 @@ It's worth pointing out that while U-net looks very similar to SegNet (commonly 
 high dynamic range and high resolution.
 
 For this project,a modified U-net was compiled to accomodate 3D image arrays and computation cost, and this particular model is primarily based on Cicek et al.'s
-published work on volumetric segmentation[3]. Instead of using the Caffe framwork, this model is built and trained using Keras. Due to large computational overhead,no batch normalization was used.
+published work on volumetric segmentation[3]. Instead of using the Caffe framwork, this model is built and trained using Keras. 
 
 <p align ='center'><img src='images/U-net.png' width='50%' height='50%'></p>
 <p align ='center'><b>Fig 1.</b> 4-layer U-net for volumetric segmentation.(<i>source:https://lmb.informatik.uni-freiburg.de/Publications/2016/CABR16/</i>)</p>
@@ -22,11 +22,11 @@ published work on volumetric segmentation[3]. Instead of using the Caffe framwor
 
 ### Data Processing
 
-There was total of 60 patient sample (20 from each site), and different MRI parameters were applied at different hospitals to generate multiple images for each patient. The images of interest are the pre-processed files that corrected for bias field, and only the flair images are used. In the data_process.py script, it imports the image files and subsequently reformats the data into numpy arrays. The input to the U-net model is resized to samples of 128x128x16x1 tensor. The mask files in the training dataset were annotated manually by experts using the flair MRIs. In order to generate a bigger collection, image augmentation by affine transformation was used in the data processing step. In the end, there was total of 240 images.
+There was total of 60 patient sample (20 from each site), and different MRI parameters were applied at different hospitals to generate multiple images for each patient. The images of interest are the pre-processed files that corrected for bias field, and only the flair images are used. In the data_process.py script, it imports the image files and subsequently reformats the data into numpy arrays. The input to the U-net model is resized to samples of 128x128x16x1 tensor. The mask files in the training dataset were annotated manually by experts using the flair MRIs. In order to generate a bigger collection, image augmentation by affine transformation was used in the data processing step. In the end, there was total of 240 images. Due to large computational overhead,no batch normalization was used.
 
 ### Results
 
-Using 2D kernels(3x3x1) in the model architecture and image augmentation significantly reduced overfitting. For a baseline model without augmentation, the Dice Coefficient for all validation image arrays was 73%. After data augmentation and training on 164 images,the total Dice Coefficient on validation set(54 un-augmented images) was 79%, with average of 72%±12%. 
+[Dice coefficient](https://www.omicsonline.org/JCSBimages/JCSB-07-209-g003.html) is used as a similarity metric to evaluate how much the predicted mask overlaps with the annotated/true mask and how robust it is. The use of kernels(3x3x1) that focus on the x-y plane and image augmentation significantly reduced overfitting. For a baseline model without augmentation, the Dice Coefficient for all validation image arrays was 73%. After data augmentation and training on more images, the total Dice Coefficient on the validation set(54 un-augmented images) was 79%, with average of 72%±12%. Given that there're computational constraints within the GPU instance, the images had to be resized and only parts of the slices were used. The model architecture can be further improved with more memory to handle additional image augmentation, more slices, and more channel for the T1 MRI.
 
 I was curious to see how the trained model 'sees' the image input, so I pulled out the post-activation feature maps from the convolution layers. From left to right on the top of Fig 3, it shows the representations as the model encodes and compresses the features (hence more blurry at the end). As for the bottom row, the drastic color changes indicate that there's some major learning/weight updating going on as the model is trying to compile a good mask image.
 
@@ -34,8 +34,7 @@ I was curious to see how the trained model 'sees' the image input, so I pulled o
 
 ![alt text](images/collage_up.png "activation maps of right side")
 
-<p ><b>Fig 3.</b> Activation maps from convolution layers. The top row corresponds to the contractive path, and the bottom row corresponds to the expansive/synthesis path. Few of the pictures were generated from low-intensity pixel distribution, so only one color is visble due to the collage displayed on global scale. </p>
-
+<p ><b>Fig 2.</b> Activation maps from convolution layers. The top row corresponds to the contractive path, and the bottom row corresponds to the expansive/synthesis path. Few of the pictures were generated from low-intensity pixel distribution, so only one color is visble due to the collage displayed on global scale. </p>
 
 
 
