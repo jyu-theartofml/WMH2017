@@ -1,6 +1,6 @@
 ## Segmentation of white matter intensities using modified 3D U-net.
 
-![alt text](images/mask%20overlay.png "Predicted mask contour")
+![alt text](images/mask%20overlay2.png "Predicted mask contour")
 
 White Matter Hyperintensities (aka., leukoaraiosis) is often linked to high risk of stroke and dementia in older patients[1]. While image 
 segmentation is critical for diagnosis and evaluation of treatments, automated segmentation of medical images remains a challenging task. In 
@@ -27,11 +27,13 @@ There was total of 60 patient sample (20 from each site), and different MRI para
 
 ### Results
 
-Using 2D kernels(3x3x1) in the model architecture and image augmentation significantly reduced overfitting. For the baseline model(without augmentation), the Dice Coefficient for all validation image arrays was 73%. After data augmentation, the total Dice Coefficient was 77%, and average was 69%±13%. 
+Using 2D kernels(3x3x1) in the model architecture and image augmentation significantly reduced overfitting. For a baseline model without augmentation, the Dice Coefficient for all validation image arrays was 73%. After data augmentation, and training on 161 images,the total Dice Coefficient was 77%, and average was 69%±13% (validated on 51 images). 
 
 
 
+![alt text](images/collage_down.png "activation maps of left side")
 
+![alt text](images/collage_up.png "activation maps of right side")
 
 
 
