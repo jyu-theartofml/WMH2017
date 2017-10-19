@@ -198,7 +198,7 @@ print(train_img_combined.shape)
 print(val_img_combined.shape)
 
 
-####### shuffle the dataset before feeding them to model
+################### shuffle the dataset before feeding them to model
 from sklearn.utils import shuffle
 train_shuffled, train_mask_shuffled = shuffle(train_img_combined, train_mask_combined, random_state=12)
 val_shuffled, val_mask_shuffled = shuffle(val_img_combined, val_mask_combined, random_state=12)
@@ -207,7 +207,7 @@ val_shuffled, val_mask_shuffled = shuffle(val_img_combined, val_mask_combined, r
 hist=model.fit(train_shuffled, train_mask_shuffled , batch_size=1, epochs=10, verbose=1, shuffle=True,
               validation_data=(val_shuffled, val_mask_shuffled),callbacks=[model_checkpoint,early_stopping]) 
 
-###### Predict on validation set (on unaugmented images)
+################### Predict on validation set ##################
 test_pred = model.predict(val_img1, batch_size=1, verbose=1)
 
 test_masks=np.resize(test_pred, (test_pred.shape[0], test_pred.shape[1], test_pred.shape[2],test_pred.shape[3]))
@@ -217,7 +217,7 @@ val_image=np.resize(val_img1, (val_img1.shape[0], val_img1.shape[1], val_img1.sh
 
 ########## calculate total Dice Coefficient as a measure of similarity between predicted mask and true mask
 true_mask_f = true_masks.flatten()
-test_masks_f = np.around(test_masks.flatten()) # produce a binary mask image for predicted mask
+test_masks_f = np.around(test_masks.flatten()) 
 smooth=1
 intersection = np.sum((true_mask_f) *(test_masks_f))
 dice=((2. * intersection + smooth) / (np.sum((true_mask_f)) + np.sum((test_masks_f)) + smooth))
