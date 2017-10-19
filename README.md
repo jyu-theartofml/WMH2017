@@ -1,6 +1,6 @@
 # Segmentation of white matter intensities using modified 3D U-net.
 
-![alt text](images/mask%20overlay2.png "Predicted mask contour")
+![alt text](images/overlay2.png "Predicted mask contour")
 
 White Matter Hyperintensities (aka., leukoaraiosis) is often linked to high risk of stroke and dementia in older patients[1]. While image 
 segmentation is critical for diagnosis and evaluation of treatments, automated segmentation of medical images remains a challenging task. In 
