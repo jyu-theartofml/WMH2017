@@ -27,19 +27,14 @@ There was total of 60 patient sample (20 from each site), and different MRI para
 
 ### Results
 
-Using 2D kernels(3x3x1) in the model architecture and image augmentation significantly reduced overfitting. For a baseline model without augmentation, the Dice Coefficient for all validation image arrays was 73%. After data augmentation, and training on 161 images,the total Dice Coefficient was 77%, and average was 69%±13% (validated on 51 images). 
-
+Using 2D kernels(3x3x1) in the model architecture and image augmentation significantly reduced overfitting. For a baseline model without augmentation, the Dice Coefficient for all validation image arrays was 73%. After data augmentation and training on 160 images,the total Dice Coefficient on validation set was 77%, with average of 70%±12% (validated on 54 un-augmented images). 
 
 
 ![alt text](images/collage_down.png "activation maps of left side")
 
 ![alt text](images/collage_up.png "activation maps of right side")
 
-
-
-
-
-<p> </p>
+<p align ='center'><b>Fig 2.</b> Activation maps from convolution layers. The top row corresponds to the contractive path, and the bottom row corresponds to the expansive/synthesis path. 
 
 
 
@@ -47,6 +42,7 @@ Using 2D kernels(3x3x1) in the model architecture and image augmentation signifi
 
 
 
+#### REFERENCE
 1. Wardlaw, J. M., Valdés Hernández, M. C., & Muñoz-Maniega, S. (2015). What are White Matter Hyperintensities Made of?: Relevance to Vascular Cognitive Impairment. Journal of the American Heart Association: Cardiovascular and Cerebrovascular Disease, 4(6), e001140. http://doi.org/10.1161/JAHA.114.0011402.
 2. Ronneberger,O.,Fischer, F., Brox, T. (2015) **U-Net: Convolutional Networks for Biomedical Image Segmentation**. Medical Image Computing and Computer-Assisted Intervention (MICCAI), Springer, LNCS, Vol.9351: 234--241, 2015 
 3. Çiçek, O.,Abdulkadir, A., Lienkamp, S., Brox, T., Ronnebergeer, O.  **3D U-Net: Learning Dense VolumetricSegmentation from Sparse Annotation**. Medical Image Computing and Computer-Assisted Intervention (MICCAI), Springer, LNCS, Vol.9901: 424--432, Oct 2016
