@@ -22,7 +22,7 @@ published work on volumetric segmentation[3]. Instead of using the Caffe framwor
 
 ### Data Processing
 
-There was total of 60 patient sample (20 from each site), and different MRI parameters were applied at different hospitals to generate multiple images for each patient. The images of interest are the pre-processed files that corrected for bias field, and only the flair images are used. In the data_process.py script, it imports the image files and subsequently reformats the data into numpy arrays. The input to the U-net model is resized to samples of 128x128x16x1 tensor. The mask files in the training dataset were annotated manually by experts using the flair MRIs. In order to generate a bigger collection, image augmentation by affine transformation was used in the data processing step. In the end, there was total of 240 images. Due to large computational overhead,no batch normalization was used.
+There was total of 60 patient samples (20 from each site), and different MRI parameters were applied at different hospitals to generate multiple images for each patient. The images of interest are the pre-processed files that corrected for bias field, and only the flair images are used. In the data_process.py script, it imports the image files and subsequently reformats the data into numpy arrays. The input to the U-net model is resized to samples of 128x128x16x1 tensor. The mask files in the training dataset were annotated manually by experts using the flair MRIs. In order to generate a bigger collection, image augmentation by affine transformation was used in the data processing step. In the end, there was total of 240 images. Due to large computational overhead,no batch normalization was used.
 
 ### Results
 
