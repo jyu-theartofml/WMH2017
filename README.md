@@ -1,4 +1,3 @@
-# Segmentation of white matter intensities using 3D U-net.
 
 ![alt text](images/overlay2.png "Predicted mask contour")
 
