@@ -3,7 +3,7 @@
 
 White Matter Hyperintensities (aka., leukoaraiosis) is often linked to high risk of stroke and dementia in older patients[1]. While image 
 segmentation is critical for diagnosis and evaluation of treatments, automated segmentation of medical images remains a challenging and time-consuming task. In 
-this post, a deep learning network called U-net is evaluated on brain MRIs for segmentation of White Matter Intensities (WMH).
+this post, a deep learning network called U-net is evaluated on brain MRIs for segmentation of White Matter Hyperintensities (WMH).
 The dataset was obtained from the [WMH Segmentation Challenge](http://wmh.isi.uu.nl/), which's organized by UMC Utrecht, VU Amsterdam, and NUHS Singapore. The goal is 
 to train the deep learning model to generate binary mask that corresponds to WMH region of the brain MRI. 
 
