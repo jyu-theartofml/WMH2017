@@ -8,7 +8,6 @@ import os
 import keras
 keras.__version__
 
-
 from keras.models import Model,load_model
 from keras.layers import Input, concatenate,Activation, Conv3D, MaxPooling3D,UpSampling3D, BatchNormalization, Dropout
 from keras.optimizers import Adam, SGD
@@ -126,8 +125,6 @@ def f1(y_true, y_pred):
     return 2*((precision*recall)/(precision+recall+K.epsilon()))
 
 ################################### Build 3D model architecture (memory intensive!) ##############################
-# Convolution kernel 3x3x1 was used, and it helps to reduce overfitting by focusing on the x-y element, and the model is fitting less weights
-
 def wmh_unet():
     inputs = Input((ROWS, COLS,16,1))
     conv1 = Conv3D(32, (3,3,1), activation='relu', padding='same')(inputs)
