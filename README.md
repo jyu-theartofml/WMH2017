@@ -5,7 +5,7 @@ White Matter Hyperintensities (aka., leukoaraiosis) is often linked to high risk
 segmentation is critical for diagnosis and evaluation of treatments, automated segmentation of medical images remains a challenging and time-consuming task. In 
 this post, a deep learning network called U-net is evaluated on brain MRIs for segmentation of White Matter Hyperintensities (WMH).
 The dataset was obtained from the [WMH Segmentation Challenge](http://wmh.isi.uu.nl/), which's organized by UMC Utrecht, VU Amsterdam, and NUHS Singapore. The goal is 
-to train the deep learning model to generate binary mask that corresponds to WMH region of the brain MRI. This kind of deep learning model has great potential for automated medical diagnostic applications. In fact, commercial models have been developed for heart and breast imaging [2]
+to train the deep learning model to generate binary mask that corresponds to WMH region of the brain MRI. This kind of deep learning model has great potential for automated medical diagnostic applications. In fact, commercial models have been developed for heart and breast imaging [2].
 
 ### Why U-net
 U-net was introduced by Olaf Ronneberger and his team back in 2015 as a refined autoencoder method targeting medical image segmentation [3]. Like an autoencoder, the contractive path (left side of the net) learns higher representations of the input, and the expansive path (right side) learns to generate new images (i.e, mask) by updating the weights of the convolutional layers through backpropagation. Upconvolution ([different from deconvolution](https://distill.pub/2016/deconv-checkerboard/)) is performed on the right side to generate higher resolution image from lower resolution feature maps. 
